@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">GPS_RealTime</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="get_location">Get Location</string>
+    <string name="init">logout</string>
+    <string name="logout">logout</string>
+    <string name="test">test</string>
+    <string name="profileimage">profileImage</string>
+    <string name="user_name">User Name</string>
+    <string name="user_phone_number">User Phone Number</string>
+    <string name="user_email">User Email</string>
+    <string name="gps_in_real_time">GPS In Real Time</string>
+    <string name="login_in_your_account">Login in Your Account</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="new_here_create_account">New Here? Create Account</string>
+    <string name="forgot_password_reset_here">Forgot Password? Reset Here</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="full_name">Full Name</string>
+    <string name="register">Register</string>
+    <string name="already_have_a_registration_login_here">Already have a Registration? Login Here</string>
+    <string name="phone">Phone</string>
+    <string name="change_avatar">Change Avatar</string>
+    <string name="greeting_user">Greeting User</string>
+    <string name="going_back">going back</string>
+    <string name="admin">Admin</string>
+    <string name="nice">nice</string>
+    <string name="button">Button</string>
+    <string name="intro">intro</string>
+
+
+</resources>

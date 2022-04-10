@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "316445932890",
+    "firebase_url": "https://gps-realtime-945b4-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "gps-realtime-945b4",
+    "storage_bucket": "gps-realtime-945b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316445932890:android:850a598075aceef57c0763",
+        "android_client_info": {
+          "package_name": "g2g.diploma.gps_realtime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "316445932890-rpnqgqt529ms5shi2gpo4gavheuelk1p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_PGTb0sb1YvnMtgWHk6A-NMuT0apthP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "316445932890-rpnqgqt529ms5shi2gpo4gavheuelk1p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
