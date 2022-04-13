@@ -175,8 +175,6 @@ public class MainActivity extends AppCompatActivity implements
                 document(FirebaseAuth.getInstance().getUid());
 
 
-
-
         button_location = findViewById(R.id.gLocation);
 
         isFullAccessGranted.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -205,9 +203,13 @@ public class MainActivity extends AppCompatActivity implements
                                 @Override
                                 public void onComplete(@NonNull Task<Location> task) {
                                     if (task.isSuccessful()) {
-                                        Location location = task.getResult();
+                                        try {
+                                            Location location = task.getResult();
+                                            cameraView(new LatLng(location.getLatitude(), location.getLongitude()), DEFAULT_ZOOM_CAMERA);
+                                        }catch (NullPointerException e){
+                                            Toast.makeText(MainActivity.this, "NO location", Toast.LENGTH_SHORT).show();
+                                        }
 
-                                        cameraView(new LatLng(location.getLatitude(), location.getLongitude()), DEFAULT_ZOOM_CAMERA);
 
                                     }
                                 }
@@ -713,8 +715,10 @@ public class MainActivity extends AppCompatActivity implements
             public void onComplete(@NonNull Task<Location> task) {
                 if (task.isSuccessful()) {
 
-                    try{
+                    try {
+
                         Location location = task.getResult();
+
                         GeoPoint geoPoint = new GeoPoint(location.getLatitude(), location.getLongitude());
                         Log.d(TAG, "onComplete last location: latitude: " + geoPoint.getLatitude());
                         Log.d(TAG, "onComplete: last location: longitude: " + geoPoint.getLongitude());
@@ -726,13 +730,9 @@ public class MainActivity extends AppCompatActivity implements
                         startLocationService();
                         Toast.makeText(MainActivity.this, "Map loaded!!", Toast.LENGTH_SHORT).show();
                     }catch (NullPointerException e){
-                        Log.e(TAG, "onClick: NullPointerException: Map loading..." + e.getMessage() );
-                        Toast.makeText(MainActivity.this, "Map loading....", Toast.LENGTH_SHORT).show();
-                        Toast.makeText(MainActivity.this, "Wait......", Toast.LENGTH_SHORT).show();
-
-
-
+                        Toast.makeText(MainActivity.this, "Map xxxxxx!!", Toast.LENGTH_SHORT).show();
                     }
+
 
                 }
             }
@@ -740,7 +740,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
 
-   @Override
+    @Override
     protected void onResume() {
         super.onResume();
        if (checkMapServices()){
@@ -756,8 +756,6 @@ public class MainActivity extends AppCompatActivity implements
     }
 
 
-
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -768,10 +766,6 @@ public class MainActivity extends AppCompatActivity implements
         Log.d(TAG,"STOPP");
         mHandler.removeCallbacks(mRunnable);
     }
-
-
-
-
 
     private boolean checkMapServices(){
         if(isServicesOK()){
@@ -839,7 +833,6 @@ public class MainActivity extends AppCompatActivity implements
         switch (requestCode) {
             case PERMISSIONS_REQUEST_ENABLE_GPS: {
                 if(mLocationPermissionGranted){
-
                     getUserDetails();
                 }
                 else{
@@ -858,7 +851,6 @@ public class MainActivity extends AppCompatActivity implements
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             mLocationPermissionGranted = true;
-
             getUserDetails();
         } else {
             ActivityCompat.requestPermissions(this,
@@ -992,7 +984,7 @@ public class MainActivity extends AppCompatActivity implements
                 marker.hideInfoWindow();
             }
             else{
-                Log.d(TAG,"Go on");
+
                 final AlertDialog.Builder builder = new AlertDialog.Builder(this);/////
                 builder.setMessage(marker.getSnippet())
                         .setCancelable(true)
