@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements
         DocumentReference isFullAccessGranted = mDb.collection("User").
                 document(FirebaseAuth.getInstance().getUid());
 
-
+        startLocationService();
         button_location = findViewById(R.id.gLocation);
         mbutton_logout = findViewById(R.id.button_logout);
 
@@ -188,8 +188,10 @@ public class MainActivity extends AppCompatActivity implements
                         @Override
                         public void onClick(View view) {
 
+
                             setContentView(R.layout.activity_google_map);
                             initMap();
+
 
                             if (ActivityCompat.checkSelfPermission(getApplicationContext(),
                                     Manifest.permission.ACCESS_FINE_LOCATION)
@@ -233,6 +235,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 }
                 else {
+
 
                     button_location.setVisibility(View.GONE);
 
@@ -743,9 +746,9 @@ public class MainActivity extends AppCompatActivity implements
                         saveUserLocation();
 
                         startLocationService();
-                        Toast.makeText(MainActivity.this, "Load Map", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Map Fully Loaded!", Toast.LENGTH_SHORT).show();
                     }catch (NullPointerException e){
-                        Toast.makeText(MainActivity.this, "Map not loaded. Open Map!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Map is loaded. Open Map!", Toast.LENGTH_SHORT).show();
                     }
 
 

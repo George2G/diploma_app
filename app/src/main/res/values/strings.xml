@@ -28,6 +28,7 @@
     <string name="nice">nice</string>
     <string name="button">Button</string>
     <string name="intro">intro</string>
+    <string name="reset_map">reset map</string>
 
 
 </resources>

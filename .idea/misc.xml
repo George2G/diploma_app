@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/georg/AndroidStudioProjects/GPS_RealTime3/app/src/main/res/drawable-anydpi/ic_backspace.xml" value="0.2703125" />
+        <entry key="..\:/Users/georg/AndroidStudioProjects/GPS_RealTime3/app/src/main/res/drawable-anydpi/ic_backspace_1.xml" value="0.2703125" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/GPS_RealTime3/app/src/main/res/drawable-anydpi/ic_findPeoplee.xml" value="0.2703125" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/GPS_RealTime3/app/src/main/res/drawable-anydpi/ic_findpeoplee.xml" value="0.2703125" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/GPS_RealTime3/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/georg/AndroidStudioProjects/GPS_RealTime3/app/src/main/res/drawable/ic_baseline_settings_backup_restore_24.xml" value="0.2703125" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/GPS_RealTime3/app/src/main/res/drawable/ic_refresh_black_24dp.xml" value="0.2703125" />
-        <entry key="..\:/Users/georg/AndroidStudioProjects/GPS_RealTime3/app/src/main/res/layout/activity_google_map.xml" value="0.264" />
+        <entry key="..\:/Users/georg/AndroidStudioProjects/GPS_RealTime3/app/src/main/res/layout/activity_google_map.xml" value="0.4742468415937804" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/GPS_RealTime3/app/src/main/res/layout/activity_h_to_use.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/GPS_RealTime3/app/src/main/res/layout/activity_how_to_use.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/georg/AndroidStudioProjects/GPS_RealTime3/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
