@@ -270,6 +270,7 @@ public class MainActivity extends AppCompatActivity implements
 
 
             Toast.makeText(this, "Map Is Ready", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Click the refresh icon to minimize errors", Toast.LENGTH_SHORT).show();
             mMap = googleMap;
 
 
@@ -728,9 +729,9 @@ public class MainActivity extends AppCompatActivity implements
                         saveUserLocation();
 
                         startLocationService();
-                        Toast.makeText(MainActivity.this, "Map loaded!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Load Map", Toast.LENGTH_SHORT).show();
                     }catch (NullPointerException e){
-                        Toast.makeText(MainActivity.this, "Map xxxxxx!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Map not loaded. Open Map!!", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -990,11 +991,18 @@ public class MainActivity extends AppCompatActivity implements
                         .setCancelable(true)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                                try {
+                                    resetSelectedMarker();
+                                    mSelectedMarker = marker;
+                                    calculateDirections(marker);
+                                    dialog.dismiss();
+                                }catch (NullPointerException e){
 
-                                resetSelectedMarker();
-                                mSelectedMarker = marker;
-                                calculateDirections(marker);
-                                dialog.dismiss();
+                                    Toast.makeText(MainActivity.this, "Location Denied!", Toast.LENGTH_SHORT).show();
+
+                                    Toast.makeText(MainActivity.this, "Go Back To The Main Menu And Come Back!", Toast.LENGTH_SHORT).show();
+                                }
+
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
