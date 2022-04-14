@@ -176,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements
 
 
         button_location = findViewById(R.id.gLocation);
+        mbutton_logout = findViewById(R.id.button_logout);
 
         isFullAccessGranted.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -207,37 +208,50 @@ public class MainActivity extends AppCompatActivity implements
                                             Location location = task.getResult();
                                             cameraView(new LatLng(location.getLatitude(), location.getLongitude()), DEFAULT_ZOOM_CAMERA);
                                         }catch (NullPointerException e){
-                                            Toast.makeText(MainActivity.this, "NO location", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(MainActivity.this, "Could Not Find Your Location", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(MainActivity.this, "Go To Main Menu, Then Come Back", Toast.LENGTH_SHORT).show();
                                         }
 
 
                                     }
                                 }
                             });
+
+                        }
+                    });
+                    mbutton_logout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(MainActivity.this, "Logged Out Successfully!", Toast.LENGTH_SHORT).show();
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(getApplicationContext(), Login.class));
+                            finish();
+
+
                         }
                     });
 
                 }
+                else {
+
+                    button_location.setVisibility(View.GONE);
+
+                    mbutton_logout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(MainActivity.this, "Logged Out Successfully!", Toast.LENGTH_SHORT).show();
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(getApplicationContext(), Login.class));
+                            finish();
+
+
+                        }
+                    });
+                }
             }
         });
 
-        button_location.setVisibility(View.INVISIBLE);
 
-        mbutton_logout = findViewById(R.id.button_logout);
-
-
-
-        mbutton_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Logged Out Successfully!", Toast.LENGTH_SHORT).show();
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), Login.class));
-                finish();
-
-
-            }
-        });
 
     }
 
